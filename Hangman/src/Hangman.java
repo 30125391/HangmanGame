@@ -17,8 +17,14 @@ public class Hangman {
         //close window
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //create the difficulty buttons
+        JButton easyButton = new JButton("easy");
+        JButton mediumButton = new JButton("medium");
+        JButton hardButton = new JButton("hard");
+
+
         MigLayout layout = new MigLayout(
-                "",           // layout constraints, add debug to see dotted lines
+                "debug",           // layout constraints, add debug to see dotted lines
                 "[][grow]",     // column constraints
                 "[][][grow]"   // row constraints
         );
@@ -62,6 +68,22 @@ public class Hangman {
         Font currentFont3 = themes.getFont();
         Font newFont3 = currentFont.deriveFont(currentFont3.getSize() * 1.3F);
         themes.setFont(newFont3);
+
+
+
+        frame.getContentPane().add(easyButton, "cell 2 2");
+        frame.getContentPane().add(mediumButton, "cell 3 2");
+        frame.getContentPane().add(hardButton, "cell 4 2");
+
+        //Create the difficulty panel and adds the buttons
+        //JPanel diff = new JPanel(new MigLayout());
+        //diff.add(easyButton);
+       // diff.add(mediumButton);
+        //diff.add(hardButton);
+
+        // adds the panel to the content pane
+       // frame.getContentPane().add(diff, "cell 3 2");
+
 
 
 
