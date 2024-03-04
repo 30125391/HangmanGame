@@ -21,7 +21,18 @@ public class Hangman {
                 "[][][grow]"   // row constraints
         );
         frame.setLayout(layout);
+
+        //create label (text)
+        JLabel label = new JLabel("Enter Text:");
+        // add it to the frame in top left (0 0 means column and row)
+        frame.getContentPane().add(label,"cell 0 0");
+
+        JTextField field = new JTextField();
+        frame.getContentPane().add(field,"cell 1 0, growx");
+
+        frame.setVisible(true);
     }
+
 
     public static void main(String[] args) {
         new Hangman();
