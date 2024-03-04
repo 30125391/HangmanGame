@@ -66,7 +66,7 @@ public class Hangman {
 
 
         //create themes header
-        JLabel themes = new JLabel("       T H E M E S ");
+        JLabel themes = new JLabel("  T H E M E S ");
         // add it to the frame in low centre
         frame.getContentPane().add(themes,"cell 3 4");
 
@@ -78,7 +78,7 @@ public class Hangman {
         JButton animalButton = new JButton("Animals");
         JButton cartoonButton = new JButton("Cartoons");
         JButton sWButton = new JButton("Star Wars");
-        JButton marvelButton = new JButton("marvel");
+        JButton marvelButton = new JButton("Marvel");
 
 
         //adds the theme buttons
@@ -86,6 +86,12 @@ public class Hangman {
         frame.getContentPane().add(sWButton, "cell 3 5");
         frame.getContentPane().add(animalButton, "cell 4 5");
         frame.getContentPane().add(marvelButton, "cell 5 5");
+
+        // creates the submit button
+        JButton submit = new JButton("submit");
+
+        //adds the theme buttons
+        frame.getContentPane().add(submit, "cell 5 6 ");
 
 
         frame.setVisible(true);
