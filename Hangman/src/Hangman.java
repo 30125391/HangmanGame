@@ -25,18 +25,44 @@ public class Hangman {
         frame.setLayout(layout);
 
         //create label (text)
-        JLabel label = new JLabel(" H A N G M A N ");
-        // add it to the frame in top left (0 0 means column and row)
-        frame.getContentPane().add(label,"cell 3 1");
+        JLabel heading = new JLabel(" H A N G M A N ");
+        // add it to the frame in top centre (0 0 means column and row)
+        frame.getContentPane().add(heading,"cell 3 1");
 
-        Font currentFont = label.getFont();
+        //give heading font (default currently)
+        Font currentFont = heading.getFont();
         Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.7F);
-        label.setFont(newFont);
+        heading.setFont(newFont);
 
+        //Add border
         Border label_border = BorderFactory.createLineBorder(Color.black, 3);
+        heading.setBorder(label_border);
+        heading.setBounds(25,25,250,300);
 
-        label.setBorder(label_border);
-        label.setBounds(25,25,250,300);
+
+
+
+        //create themes header
+        JLabel difficulty = new JLabel("  D I F F I C U L T Y ");
+        // add it to the frame in low centre
+        frame.getContentPane().add(difficulty,"cell 3 2");
+
+        Font currentFont2 = difficulty.getFont();
+        Font newFont2 = currentFont.deriveFont(currentFont2.getSize() * 1.3F);
+        difficulty.setFont(newFont2);
+
+
+
+
+        //create themes header
+        JLabel themes = new JLabel("       T H E M E S ");
+        // add it to the frame in low centre
+        frame.getContentPane().add(themes,"cell 3 4");
+
+        Font currentFont3 = themes.getFont();
+        Font newFont3 = currentFont.deriveFont(currentFont3.getSize() * 1.3F);
+        themes.setFont(newFont3);
+
 
 
         frame.setVisible(true);
