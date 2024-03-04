@@ -23,12 +23,14 @@ public class Hangman {
         frame.setLayout(layout);
 
         //create label (text)
-        JLabel label = new JLabel("Enter Text:");
+        JLabel label = new JLabel(" H A N G M A N ");
         // add it to the frame in top left (0 0 means column and row)
-        frame.getContentPane().add(label,"cell 0 0");
+        frame.getContentPane().add(label,"cell 3 1");
 
-        JTextField field = new JTextField();
-        frame.getContentPane().add(field,"cell 1 0, growx");
+        Font currentFont = label.getFont();
+        Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.4F);
+        label.setFont(newFont);
+
 
         frame.setVisible(true);
     }
