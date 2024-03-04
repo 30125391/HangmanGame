@@ -59,6 +59,11 @@ public class Hangman {
 
 
 
+        frame.getContentPane().add(easyButton, "cell 2 3");
+        frame.getContentPane().add(mediumButton, "cell 3 3");
+        frame.getContentPane().add(hardButton, "cell 4 3");
+
+
 
         //create themes header
         JLabel themes = new JLabel("       T H E M E S ");
@@ -68,21 +73,6 @@ public class Hangman {
         Font currentFont3 = themes.getFont();
         Font newFont3 = currentFont.deriveFont(currentFont3.getSize() * 1.3F);
         themes.setFont(newFont3);
-
-
-
-        frame.getContentPane().add(easyButton, "cell 2 2");
-        frame.getContentPane().add(mediumButton, "cell 3 2");
-        frame.getContentPane().add(hardButton, "cell 4 2");
-
-        //Create the difficulty panel and adds the buttons
-        //JPanel diff = new JPanel(new MigLayout());
-        //diff.add(easyButton);
-       // diff.add(mediumButton);
-        //diff.add(hardButton);
-
-        // adds the panel to the content pane
-       // frame.getContentPane().add(diff, "cell 3 2");
 
 
 
