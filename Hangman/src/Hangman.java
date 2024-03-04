@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,8 +30,13 @@ public class Hangman {
         frame.getContentPane().add(label,"cell 3 1");
 
         Font currentFont = label.getFont();
-        Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.4F);
+        Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.7F);
         label.setFont(newFont);
+
+        Border label_border = BorderFactory.createLineBorder(Color.black, 3);
+
+        label.setBorder(label_border);
+        label.setBounds(25,25,250,300);
 
 
         frame.setVisible(true);
