@@ -17,6 +17,10 @@ public class Hangman {
         //close window
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //create the difficulty buttons
+        JButton easyButton = new JButton("easy");
+        JButton mediumButton = new JButton("medium");
+        JButton hardButton = new JButton("hard");
 
 
         MigLayout layout = new MigLayout(
@@ -55,6 +59,12 @@ public class Hangman {
 
 
 
+        frame.getContentPane().add(easyButton, "cell 2 3");
+        frame.getContentPane().add(mediumButton, "cell 3 3");
+        frame.getContentPane().add(hardButton, "cell 4 3");
+
+
+
         //create themes header
         JLabel themes = new JLabel("       T H E M E S ");
         // add it to the frame in low centre
@@ -64,11 +74,6 @@ public class Hangman {
         Font newFont3 = currentFont.deriveFont(currentFont3.getSize() * 1.3F);
         themes.setFont(newFont3);
 
-        //creates the difficulty buttons
-        JButton easyButton = new JButton("easy");
-        JButton mediumButton = new JButton("medium");
-        JButton hardButton = new JButton("hard");
-
         // creates the theme buttons
         JButton animalButton = new JButton("Animals");
         JButton cartoonButton = new JButton("Cartoons");
@@ -76,20 +81,11 @@ public class Hangman {
         JButton marvelButton = new JButton("marvel");
 
 
-        // adds the difficulty buttons
-        frame.getContentPane().add(easyButton, "cell 2 2");
-        frame.getContentPane().add(mediumButton, "cell 3 2");
-        frame.getContentPane().add(hardButton, "cell 4 2");
-
         //adds the theme buttons
-        frame.getContentPane().add(animalButton, "cell 2 3");
-        frame.getContentPane().add(cartoonButton, "cell 3 3");
-        frame.getContentPane().add(sWButton, "cell 4 3");
-        frame.getContentPane().add(marvelButton, "cell 1 3");
-
-
-
-
+        frame.getContentPane().add(cartoonButton, "cell 2 5");
+        frame.getContentPane().add(sWButton, "cell 3 5");
+        frame.getContentPane().add(animalButton, "cell 4 5");
+        frame.getContentPane().add(marvelButton, "cell 5 5");
 
 
         frame.setVisible(true);
