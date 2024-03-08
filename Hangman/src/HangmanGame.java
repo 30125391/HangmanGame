@@ -7,11 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import net.miginfocom.swing.MigLayout;
 
-public class HangmanGame {
+public class HangmanGame extends Categories{
     public HangmanGame(){
 
         boolean lose = false;
-
 
         ImageIcon[] img;
         final int[] currentImageIndex = {0};
@@ -110,8 +109,7 @@ public class HangmanGame {
         });
 
 
-        ////////////////////////////////////////////////[ Hangman Image(s) ]/////////////////////////////////////////////////////////////////////
-
+        /////////////////////////////////////////////////[ Hangman Image(s) ]/////////////////////////////////////////////////////////////////////
 
         img = new ImageIcon[]{new ImageIcon("./HangmanS1.png"), new ImageIcon("./HangmanS2.png"),
                 new ImageIcon("./HangmanS3.png"),new ImageIcon("./HangmanS4.png"),
@@ -123,9 +121,7 @@ public class HangmanGame {
 
 
 
-
-
-        ////////////////////////////////////////////////[ Temporary Button ]/////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////[ Temporary Button ]/////////////////////////////////////////////////////////////////////
 
 
         JButton x = new JButton("x");
@@ -142,17 +138,31 @@ public class HangmanGame {
                 }
             }
         });
-
-
-
-        ////////////////////////////////////////////////[ JFrame ]/////////////////////////////////////////////////////////////////////
-
+        //////////////////////////////////////////////////[ JFrame ]//////////////////////////////////////////////////////////////////////////////
 
         frame.setVisible(true);
     }
 
 
+
+
+
+
+
+////////////////////////////////////////////////////////[ Main ]/////////////////////////////////////////////////////////////////////
+
     public static void main(String[] args) {
+
+        Categories categories = new Categories();
+        //Set categories
+        categories.SetCategories();
+        //Get categories
+        String[][] Categories = categories.getCategories();
+
+        //first [0] being the array and second [0] being the word
+        System.out.println(Categories[9][0]);
+
+
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 new HangmanGame();
