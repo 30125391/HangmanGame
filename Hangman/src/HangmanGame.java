@@ -8,13 +8,15 @@ import java.awt.event.ActionListener;
 import net.miginfocom.swing.MigLayout;
 
 public class HangmanGame extends Categories{
-    public HangmanGame(){
+    private String userChoice;
+    public HangmanGame(String userChoice){
+        this.userChoice = userChoice;
+        System.out.println("User choice received in HangmanGame: " + userChoice);
 
         boolean lose = false;
 
         ImageIcon[] img;
         final int[] currentImageIndex = {0};
-
 
         //title window
         JFrame frame = new JFrame("Hangman");
@@ -40,7 +42,7 @@ public class HangmanGame extends Categories{
         String difficulty = " 'M O D E' ";
 
 
-        ////////////////////////////////////////////////[ Theme Heading ]/////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////[ Theme Heading ]/////////////////////////////////////////////////////////////////////
 
         //create label (text)
         JLabel heading = new JLabel(themes);
@@ -58,7 +60,7 @@ public class HangmanGame extends Categories{
         heading.setBounds(25,25,250,300);
 
 
-        ////////////////////////////////////////////////[ Difficulty Heading ]/////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////[ Difficulty Heading ]/////////////////////////////////////////////////////////////////////
 
 
         JLabel mode = new JLabel(difficulty);
@@ -74,7 +76,7 @@ public class HangmanGame extends Categories{
         mode.setBounds(25,25,250,300);
 
 
-        ////////////////////////////////////////////////[ Used Letters ]/////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////[ Used Letters ]/////////////////////////////////////////////////////////////////////
 
 
         //Add used letters box
@@ -90,7 +92,7 @@ public class HangmanGame extends Categories{
         usedLetters.setBounds(25,25,250,300);
 
 
-        ////////////////////////////////////////////////[ Hints ]/////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////[ Hints ]/////////////////////////////////////////////////////////////////////
 
 
         JButton hints = new JButton("   Hint   ");
@@ -109,7 +111,7 @@ public class HangmanGame extends Categories{
         });
 
 
-        /////////////////////////////////////////////////[ Hangman Image(s) ]/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////[ Hangman Image(s) ]/////////////////////////////////////////////////////////////////////
 
         img = new ImageIcon[]{new ImageIcon("./HangmanS1.png"), new ImageIcon("./HangmanS2.png"),
                 new ImageIcon("./HangmanS3.png"),new ImageIcon("./HangmanS4.png"),
@@ -121,7 +123,7 @@ public class HangmanGame extends Categories{
 
 
 
-        //////////////////////////////////////////////////[ Temporary Button ]/////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////[ Temporary Button ]/////////////////////////////////////////////////////////////////////
 
 
         JButton x = new JButton("x");
@@ -138,7 +140,8 @@ public class HangmanGame extends Categories{
                 }
             }
         });
-        //////////////////////////////////////////////////[ JFrame ]//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////[ JFrame ]//////////////////////////////////////////////////////////////////////////////
 
         frame.setVisible(true);
     }
@@ -160,12 +163,12 @@ public class HangmanGame extends Categories{
         String[][] Categories = categories.getCategories();
 
         //first [0] being the array and second [0] being the word
-        System.out.println(Categories[9][0]);
+        System.out.println(Categories[2][0]);
 
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new HangmanGame();
+                new HangmanMenu();
             }
         });
     }

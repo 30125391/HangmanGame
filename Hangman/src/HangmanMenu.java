@@ -5,7 +5,11 @@ import java.awt.*;
 import java.awt.event.*;
 import net.miginfocom.swing.MigLayout;
 
+
 public class HangmanMenu {
+    private String category = "";
+    private  char mode = ' ';
+    private String userChoice = "";
     public HangmanMenu(){
 
         //title window
@@ -79,6 +83,58 @@ public class HangmanMenu {
         frame.getContentPane().add(animalButton, "cell 4 5");
         frame.getContentPane().add(marvelButton, "cell 5 5");
 
+
+
+
+
+        cartoonButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                category = "cartoon";
+            }
+        });
+        sWButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                category = "sw";
+            }
+        });
+        animalButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                category = "animal";
+            }
+        });
+        marvelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                category = "marvel";
+            }
+        });
+
+
+
+        easyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mode = 'E';
+            }
+        });
+        mediumButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mode = 'M';
+            }
+        });
+        hardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mode = 'H';
+            }
+        });
+
+
+
         // creates the submit button
         JButton submit = new JButton("submit");
 
@@ -89,16 +145,20 @@ public class HangmanMenu {
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                userChoice = category + mode;
+                System.out.println(userChoice);
                 // Close the current frame
                 frame.dispose();
                 // Start the Hangman game
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        new HangmanGame();
+                        new HangmanGame(userChoice);
                     }
                 });
             }
         });
+
 
         frame.setVisible(true);
     }
