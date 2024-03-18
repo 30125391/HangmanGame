@@ -14,23 +14,24 @@ public class Categories {
 
 
     public void SetCategories() {
-        swE = new String[]{"Jedi", "Yoda", "Luke", "Hoth"};
-        swM = new String[]{"Jabba", "Han Solo", "Endor", "Droid"};
-        swH = new String[]{"Darth Vader", "Republic", "Skywalker", "Tatooine"};
+        swE = new String[]{"Jedi", "Yoda", "Luke", "Hoth","R2D2"};
+        swM = new String[]{"Jabba", "Han Solo", "Endor", "Droid", "Chopper"};
+        swH = new String[]{"Darth Vader", "Republic", "Skywalker", "Tatooine","Coruscant"};
 
-        animalsE = new String[]{""};
-        animalsM = new String[]{""};
-        animalsH = new String[]{""};
+        animalsE = new String[]{"Cat", "Duck", "Monkey", "Hamster", "Goat"};
+        animalsM = new String[]{"koala", "Parrot", "Shark", "Dolphin", "Budgie"};
+        animalsH = new String[]{"Orca", "Alligator", "Aardvark", "Axlotl", "Grizzle bear"};
 
-        cartoonE = new String[]{""};
-        cartoonM = new String[]{"J"};
-        cartoonH = new String[]{""};
+        cartoonE = new String[]{"Bugs bunny", "Bambi", "Bob the builder", "Nemo", "Peppa pig"};
+        cartoonM = new String[]{"Mickey mouse", "Muppets", "Scooby Doo", "Simpsons", "Dora the explorer"};
+        cartoonH = new String[]{"Sebastian", "Mufasa", "Anastasia", "Lightening Mcqueen", "Buzz Lightyear" };
 
-        marvelE = new String[]{""};
-        marvelM = new String[]{""};
-        marvelH = new String[]{""};
+        marvelE = new String[]{"Spiderman", "Hulk", "Ironman", "Antman", "Miss marvel"};
+        marvelM = new String[]{"Doctor Strange", "Wolverine", "Peter Parker", "Doc Octupus", "Black Panther" };
+        marvelH = new String[]{"Crimson crusder", "Hawkeye", "Loki", "nebula", "Thanos"};
 
 
+        C:\Users\30096255\IdeaProjects\HangmanGame\Hangman\src\Categories.java
     }
 
     public String[][] getCategories() {
@@ -51,6 +52,7 @@ public class Categories {
     }
 
     public static void main(String[] args) {
+
 
     }
 }
