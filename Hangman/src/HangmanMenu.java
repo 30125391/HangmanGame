@@ -2,8 +2,8 @@ import javax.swing.*;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.*;
 import net.miginfocom.swing.MigLayout;
-
 
 public class HangmanMenu {
     public HangmanMenu(){
@@ -17,7 +17,6 @@ public class HangmanMenu {
 
         //METHOD-1 : Using Color Fields
         frame.getContentPane().setBackground(Color.WHITE);
-
 
         MigLayout layout = new MigLayout(
                 "",           // layout constraints, add debug to see dotted lines
@@ -41,14 +40,10 @@ public class HangmanMenu {
         heading.setBorder(label_border);
         heading.setBounds(25,25,250,300);
 
-
-
-
         //create themes header
         JLabel difficulty = new JLabel("  D I F F I C U L T Y ");
         // add it to the frame in low centre
         frame.getContentPane().add(difficulty,"cell 3 2");
-
 
         Font currentFont2 = difficulty.getFont();
         Font newFont2 = currentFont.deriveFont(currentFont2.getSize() * 1.3F);
@@ -62,10 +57,6 @@ public class HangmanMenu {
         frame.getContentPane().add(easyButton, "cell 2 3");
         frame.getContentPane().add(mediumButton, "cell 3 3");
         frame.getContentPane().add(hardButton, "cell 4 3");
-
-
-
-
 
         //create themes header
         JLabel themes = new JLabel("  T H E M E S ");
@@ -82,7 +73,6 @@ public class HangmanMenu {
         JButton sWButton = new JButton("Star Wars");
         JButton marvelButton = new JButton("Marvel");
 
-
         //adds the theme buttons
         frame.getContentPane().add(cartoonButton, "cell 2 5");
         frame.getContentPane().add(sWButton, "cell 3 5");
@@ -95,13 +85,25 @@ public class HangmanMenu {
         //adds the theme buttons
         frame.getContentPane().add(submit, "cell 5 6 ");
 
+        // Add action listener to the submit button
+        submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Close the current frame
+                frame.dispose();
+                // Start the Hangman game
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new HangmanGame();
+                    }
+                });
+            }
+        });
 
         frame.setVisible(true);
     }
 
-
     public static void main(String[] args) {
         new HangmanMenu();
     }
-
 }
