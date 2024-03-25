@@ -27,6 +27,7 @@ public class HangmanGame extends Categories{
         categories.SetCategories();
         //Get categories
         String[][] Categories = categories.getCategories();
+
         int userArray = 0;
 
         if(userChoice.equals("Star WarsE")){
@@ -39,7 +40,7 @@ public class HangmanGame extends Categories{
             userArray = 3;
         } else if (userChoice.equals("AnimalsM")) {
             userArray = 4;
-        } else if (userChoice.equals("AnimalsMH")) {
+        } else if (userChoice.equals("AnimalsH")) {
             userArray = 5;
         }else if (userChoice.equals("CartoonsE")) {
             userArray = 6;

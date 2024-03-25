@@ -102,7 +102,7 @@ public class HangmanMenu {
         animalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                category = "Animal";
+                category = "Animals";
             }
         });
         marvelButton.addActionListener(new ActionListener() {
