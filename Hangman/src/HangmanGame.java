@@ -2,16 +2,67 @@ import javax.swing.*;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
+
 import net.miginfocom.swing.MigLayout;
 
 public class HangmanGame extends Categories{
     private String userChoice;
-    public HangmanGame(String userChoice){
-        this.userChoice = userChoice;
+
+    public HangmanGame(String category, char mode){
+
+
+        userChoice = category + mode;
         System.out.println("User choice received in HangmanGame: " + userChoice);
+
+
+        Random rnd = new Random();
+        int rand = 0 + rnd.nextInt(4);
+
+
+        Categories categories = new Categories();
+        //Set categories
+        categories.SetCategories();
+        //Get categories
+        String[][] Categories = categories.getCategories();
+        int userArray = 0;
+
+        if(userChoice.equals("Star WarsE")){
+            userArray = 0;
+        } else if (userChoice.equals("Star WarsM")) {
+            userArray = 1;
+        } else if (userChoice.equals("Star WarsH")) {
+            userArray = 2;
+        }else if (userChoice.equals("AnimalsE")) {
+            userArray = 3;
+        } else if (userChoice.equals("AnimalsM")) {
+            userArray = 4;
+        } else if (userChoice.equals("AnimalsMH")) {
+            userArray = 5;
+        }else if (userChoice.equals("CartoonsE")) {
+            userArray = 6;
+        } else if (userChoice.equals("CartoonsM")) {
+            userArray = 7;
+        }else if (userChoice.equals("CartoonsH")) {
+            userArray = 8;
+        } else if (userChoice.equals("MarvelE")) {
+            userArray = 9;
+        }else if (userChoice.equals("MarvelM")) {
+            userArray = 10;
+        } else if (userChoice.equals("MarvelH")) {
+            userArray = 11;
+        }
+
+
+        //first [0] being the array and second [0] being the word
+        String hangmanWord = (Categories[userArray][rand]);
+
+
+//////////////////////////////////////////////////////////////[ User Interface ]/////////////////////////////////////////////////////////////////
+
+
 
         boolean lose = false;
 
@@ -33,19 +84,15 @@ public class HangmanGame extends Categories{
         );
         frame.setLayout(layout);
 
-
         //METHOD-1 : Using Color Fields
         frame.getContentPane().setBackground(Color.WHITE);
 
-
-        String themes = " 'T H E M E' ";
-        String difficulty = " 'M O D E' ";
 
 
 ////////////////////////////////////////////////[ Theme Heading ]/////////////////////////////////////////////////////////////////////
 
         //create label (text)
-        JLabel heading = new JLabel(themes);
+        JLabel heading = new JLabel("  "+ category + "  ");
         // add it to the frame in top centre (0 0 means column and row)
         frame.getContentPane().add(heading,"cell 3 1, aligny bottom, alignx center");
 
@@ -63,17 +110,41 @@ public class HangmanGame extends Categories{
 ////////////////////////////////////////////////[ Difficulty Heading ]/////////////////////////////////////////////////////////////////////
 
 
-        JLabel mode = new JLabel(difficulty);
+        String modeValue = String.valueOf(mode);
 
-        frame.getContentPane().add(mode,"cell 4 1, aligny bottom, alignx right");
+        String easy = "Easy";
+        String medium = "Medium";
+        String hard = "Hard";
 
-        Font currentFont2 = mode.getFont();
+        if (modeValue.equals("H")) {
+            modeValue = hard;
+        } else if (modeValue.equals("M")) {
+            modeValue = medium;
+        } else if (modeValue.equals("E")) {
+            modeValue = easy;
+        }
+
+        JLabel setting = new JLabel("   "+ modeValue + "   ");
+        frame.getContentPane().add(setting,"cell 4 1, aligny bottom, alignx right");
+
+        Font currentFont2 = setting.getFont();
         Font modeFont = currentFont2.deriveFont(currentFont2.getSize() * 1.5F);
-        mode.setFont(modeFont);
+        setting.setFont(modeFont);
 
         Border label_border2 = BorderFactory.createLineBorder(Color.black, 3);
-        mode.setBorder(label_border);
-        mode.setBounds(25,25,250,300);
+        setting.setBorder(label_border);
+        setting.setBounds(25,25,250,300);
+
+
+
+
+////////////////////////////////////////////////[ TEST ]/////////////////////////////////////////////////////////////////////
+
+
+
+        JLabel wordTest = new JLabel(hangmanWord);
+        frame.getContentPane().add(wordTest,"cell 4 5, aligny bottom, alignx right");
+
 
 
 ////////////////////////////////////////////////[ Used Letters ]/////////////////////////////////////////////////////////////////////
@@ -109,6 +180,7 @@ public class HangmanGame extends Categories{
                 JOptionPane.showMessageDialog(frame, "pending", "Hint", JOptionPane.INFORMATION_MESSAGE);
             }
         });
+
 
 
 /////////////////////////////////////////////////[ Hangman Image(s) ]/////////////////////////////////////////////////////////////////////
@@ -148,22 +220,9 @@ public class HangmanGame extends Categories{
 
 
 
-
-
-
-
 ////////////////////////////////////////////////////////[ Main ]/////////////////////////////////////////////////////////////////////
 
     public static void main(String[] args) {
-
-        Categories categories = new Categories();
-        //Set categories
-        categories.SetCategories();
-        //Get categories
-        String[][] Categories = categories.getCategories();
-
-        //first [0] being the array and second [0] being the word
-        System.out.println(Categories[2][0]);
 
 
         SwingUtilities.invokeLater(new Runnable() {

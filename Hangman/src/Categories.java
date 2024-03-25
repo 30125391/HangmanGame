@@ -19,19 +19,17 @@ public class Categories {
         swH = new String[]{"Darth Vader", "Republic", "Skywalker", "Tatooine","Coruscant"};
 
         animalsE = new String[]{"Cat", "Duck", "Monkey", "Hamster", "Goat"};
-        animalsM = new String[]{"koala", "Parrot", "Shark", "Dolphin", "Budgie"};
-        animalsH = new String[]{"Orca", "Alligator", "Aardvark", "Axlotl", "Grizzle bear"};
+        animalsM = new String[]{"Koala", "Parrot", "Shark", "Dolphin", "Budgie"};
+        animalsH = new String[]{"Orca", "Alligator", "Aardvark", "Axolotl", "Grizzly Bear"};
 
-        cartoonE = new String[]{"Bugs bunny", "Bambi", "Bob the builder", "Nemo", "Peppa pig"};
-        cartoonM = new String[]{"Mickey mouse", "Muppets", "Scooby Doo", "Simpsons", "Dora the explorer"};
-        cartoonH = new String[]{"Sebastian", "Mufasa", "Anastasia", "Lightening Mcqueen", "Buzz Lightyear" };
+        cartoonE = new String[]{"Bugs Bunny", "Bambi", "Bob The Builder", "Nemo", "Peppa Pig"};
+        cartoonM = new String[]{"Mickey Mouse", "Muppets", "Scooby Doo", "Simpsons", "Dora The Explorer"};
+        cartoonH = new String[]{"Sebastian", "Mufasa", "Anastasia", "Lightening McQueen", "Buzz Lightyear" };
 
-        marvelE = new String[]{"Spiderman", "Hulk", "Ironman", "Antman", "Miss marvel"};
-        marvelM = new String[]{"Doctor Strange", "Wolverine", "Peter Parker", "Doc Octupus", "Black Panther" };
-        marvelH = new String[]{"Crimson crusder", "Hawkeye", "Loki", "nebula", "Thanos"};
+        marvelE = new String[]{"Spider-man", "Hulk", "Ironman", "Antman", "Ms Marvel"};
+        marvelM = new String[]{"Doctor Strange", "Wolverine", "Peter Parker", "Doctor Octopus", "Black Panther" };
+        marvelH = new String[]{"Crimson Crusder", "Hawkeye", "Loki", "Nebula", "Thanos"};
 
-
-        C:\Users\30096255\IdeaProjects\HangmanGame\Hangman\src\Categories.java
     }
 
     public String[][] getCategories() {

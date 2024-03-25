@@ -9,7 +9,7 @@ import net.miginfocom.swing.MigLayout;
 public class HangmanMenu {
     private String category = "";
     private  char mode = ' ';
-    private String userChoice = "";
+
     public HangmanMenu(){
 
         //title window
@@ -90,25 +90,25 @@ public class HangmanMenu {
         cartoonButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                category = "cartoon";
+                category = "Cartoons";
             }
         });
         sWButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                category = "sw";
+                category = "Star Wars";
             }
         });
         animalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                category = "animal";
+                category = "Animal";
             }
         });
         marvelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                category = "marvel";
+                category = "Marvel";
             }
         });
 
@@ -146,14 +146,15 @@ public class HangmanMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                userChoice = category + mode;
-                System.out.println(userChoice);
+                System.out.println(category + mode);
+
+
                 // Close the current frame
                 frame.dispose();
                 // Start the Hangman game
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        new HangmanGame(userChoice);
+                        new HangmanGame(category, mode);
                     }
                 });
             }
