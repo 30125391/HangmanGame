@@ -196,24 +196,6 @@ public class HangmanGame{
 
 
 
-//////////////////////////////////////////////////[ Temporary Button ]/////////////////////////////////////////////////////////////////////
-
-
-        JButton x = new JButton("x");
-        frame.getContentPane().add(x,"cell 3 5, aligny bottom, alignx left");
-
-       // x.addActionListener(new ActionListener() {
-       //     @Override
-        //    public void actionPerformed(ActionEvent e) {
-        //        currentImageIndex[0]++;
-       //         if (currentImageIndex[0] == 7) {
-        //            JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-        //        } else {
-        //            imgLabel.setIcon(img[currentImageIndex[0]]);
-        //        }
-        //    }
-       // });
-
         JPanel panel = new JPanel();
 
 /////////////////////////////////////////////////[ Keyboard Buttons ]/////////////////////////////////////////////////////////////////////
@@ -282,7 +264,7 @@ public class HangmanGame{
 
         int userArray1 = userArray;
 
-        frame.getContentPane().add(panel);
+        frame.getContentPane().add(panel, "cell 3 7");
 
 /////////////////////////////////////////////////[ Buttons Functionality ]/////////////////////////////////////////////////////////////////////
 
@@ -762,6 +744,7 @@ public class HangmanGame{
                 }
             }
         });
+
         buttonZ.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -783,7 +766,12 @@ public class HangmanGame{
         });
 
 
-        frame.getContentPane().add(label, "cell 1 1");
+
+
+
+        frame.getContentPane().add(label, "cell 3 4, alignx right");
+
+        label.setFont(new Font("Serif", Font.PLAIN, 70));
 
 //////////////////////////////////////////////////[ JFrame ]//////////////////////////////////////////////////////////////////////////////
 
