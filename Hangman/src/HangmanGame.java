@@ -138,7 +138,7 @@ public class HangmanGame{
 
 
 
-
+/*
 ////////////////////////////////////////////////[ TEST ]/////////////////////////////////////////////////////////////////////
 
 
@@ -147,6 +147,8 @@ public class HangmanGame{
         frame.getContentPane().add(wordTest,"cell 4 5, aligny bottom, alignx right");
 
 
+
+ */
 
 ////////////////////////////////////////////////[ Used Letters ]/////////////////////////////////////////////////////////////////////
 
@@ -270,505 +272,30 @@ public class HangmanGame{
 
 /////////////////////////////////////////////////[ Buttons Functionality ]/////////////////////////////////////////////////////////////////////
 
-        buttonA.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("a") ) {
-                    String inputLetter = "a";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("a")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonB.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("b") ) {
-                    String inputLetter = "b";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("b")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonC.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("c") ) {
-                    String inputLetter = "c";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("c")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonD.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("d") ) {
-                    String inputLetter = "d";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("d")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonE.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("e") ) {
-                    String inputLetter = "e";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("e")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
+        JButton[] buttons = {buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ, buttonK, buttonL, buttonM, buttonN, buttonO, buttonP, buttonQ, buttonR, buttonS, buttonT, buttonU, buttonV, buttonW, buttonX, buttonY, buttonZ};
 
-            }
-        });
-        buttonF.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("f") ) {
-                    String inputLetter = "f";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("f")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
+        for (JButton button : buttons) {
+            button.addActionListener(e -> {
+                if (currentImageIndex[0] != 7) {
+                    String buttonText = button.getText().toLowerCase();
+                    if (hangmanWord.contains(buttonText)) {
+                        StringBuilder newDashLine = new StringBuilder(dashLine[0]);
+                        for (int i = 0; i < hangmanWord.length(); i++) {
+                            if (hangmanWord.charAt(i) == buttonText.charAt(0)) {
+                                newDashLine.setCharAt(i, buttonText.charAt(0));
+                            }
+                        }
+                        dashLine[0] = newDashLine.toString();
+                        label.setText(newDashLine.toString());
+                    } else {
+                        currentImageIndex[0]++;
+                        imgLabel.setIcon(img[currentImageIndex[0]]);
+                    }
+                } else {
                     JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
                 }
-            }
-        });
-        buttonG.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("g") ) {
-                    String inputLetter = "g";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("g")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonH.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("h") ) {
-                    String inputLetter = "h";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("h")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonI.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("i") ) {
-                    String inputLetter = "i";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("i")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonJ.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("j") ) {
-                    String inputLetter = "j";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("j")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonK.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("k") ) {
-                    String inputLetter = "k";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("k")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonL.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("l") ) {
-                    String inputLetter = "l";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("l")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonM.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("m") ) {
-                    String inputLetter = "m";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("m")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonN.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("n") ) {
-                    String inputLetter = "n";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("n")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonO.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("o") ) {
-                    String inputLetter = "o";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("o")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonP.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("p") ) {
-                    String inputLetter = "p";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("p")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonQ.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("q") ) {
-                    String inputLetter = "q";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("q")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonR.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("r") ) {
-                    String inputLetter = "r";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("r")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonS.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("s") ) {
-                    String inputLetter = "s";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("s")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonT.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("t") ) {
-                    String inputLetter = "t";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("t")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonU.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("u") ) {
-                    String inputLetter = "u";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("u")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonV.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("v") ) {
-                    String inputLetter = "v";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("v")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonW.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("w") ) {
-                    String inputLetter = "w";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("w")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonX.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("x") ) {
-                    String inputLetter = "x";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("x")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        buttonY.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("y") ) {
-                    String inputLetter = "y";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("y")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-
-        buttonZ.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (currentImageIndex[0] != 7 && Categories[userArray1][rand].contains("z") ) {
-                    String inputLetter = "z";
-                    char charLetter = inputLetter.charAt(0);
-                    String newDashLine = testLetter(charLetter, dashLine[0], inputLetter, Categories, userArray1, rand);
-                    dashLine[0] = dashLine[0].replaceAll(dashLine[0], newDashLine);
-                    label.setText(dashLine[0]);
-                }
-                else if (currentImageIndex[0] != 7 && !Categories[userArray1][rand].contains("z")) {
-                    currentImageIndex[0]++;
-                    imgLabel.setIcon(img[currentImageIndex[0]]);
-                }
-                else if (currentImageIndex[0] == 7) {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-
-
-
+            });
+        }
 
 
         frame.getContentPane().add(label, "cell 3 4, alignx right");
@@ -779,8 +306,6 @@ public class HangmanGame{
 
         frame.setVisible(true);
     }
-
-
 
 ////////////////////////////////////////////////////////[ Main ]/////////////////////////////////////////////////////////////////////
 
@@ -793,7 +318,6 @@ public class HangmanGame{
             }
         });
     }
-
 
     public String testLetter (char charLetter, String dashLine, String inputLetter, String[][] Categories, int userArray, int rand ) {
 
