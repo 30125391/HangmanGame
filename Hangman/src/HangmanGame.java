@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import net.miginfocom.swing.MigLayout;
 import java.util.Random;
 
-public class HangmanGame extends Categories{
+public class HangmanGame{
     private String userChoice;
 
     public HangmanGame(String category, char mode){
@@ -88,10 +88,6 @@ public class HangmanGame extends Categories{
 
         //METHOD-1 : Using Color Fields
         frame.getContentPane().setBackground(Color.WHITE);
-
-
-        String themes = " 'T H E M E' ";
-        String difficulty = " 'M O D E' ";
 
 
 ////////////////////////////////////////////////[ Theme Heading ]/////////////////////////////////////////////////////////////////////
@@ -288,7 +284,7 @@ public class HangmanGame extends Categories{
 
         frame.getContentPane().add(panel);
 
-/////////////////////////////////////////////////[ Buttons Functionality]/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////[ Buttons Functionality ]/////////////////////////////////////////////////////////////////////
 
         buttonA.addActionListener(new ActionListener() {
             @Override
@@ -785,10 +781,6 @@ public class HangmanGame extends Categories{
                 }
             }
         });
-
-
-
-
 
 
         frame.getContentPane().add(label, "cell 1 1");
