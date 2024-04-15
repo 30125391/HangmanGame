@@ -30,11 +30,7 @@ public class Categories {
         marvelM = new String[]{"cyclops", "storm", "iceman", "gambit", "nickfury" };
         marvelH = new String[]{"humantorch", "wonderman", "loki", "nebula", "thanos"};
 
-
     }
-
-
-
 
 
     public String[][] getCategories() {
