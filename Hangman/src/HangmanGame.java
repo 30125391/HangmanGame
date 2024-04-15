@@ -275,12 +275,16 @@ public class HangmanGame{
         for (JButton button : buttons) {
             button.addActionListener(e -> {
                 if (currentImageIndex[0] != 7) {
-                    String inputletter = Categories[userArray1][rand];
                     String buttonText = button.getText().toLowerCase();
-                    if (category.contains(buttonText)) {
-                        String newDashLine = testLetter(buttonText.charAt(0), dashLine[0], buttonText, Categories, userArray1, rand);
-                        dashLine[0] = newDashLine;
-                        label.setText(newDashLine);
+                    if (hangmanWord.contains(buttonText)) {
+                        StringBuilder newDashLine = new StringBuilder(dashLine[0]);
+                        for (int i = 0; i < hangmanWord.length(); i++) {
+                            if (hangmanWord.charAt(i) == buttonText.charAt(0)) {
+                                newDashLine.setCharAt(i, buttonText.charAt(0));
+                            }
+                        }
+                        dashLine[0] = newDashLine.toString();
+                        label.setText(newDashLine.toString());
                     } else {
                         currentImageIndex[0]++;
                         imgLabel.setIcon(img[currentImageIndex[0]]);
@@ -290,6 +294,7 @@ public class HangmanGame{
                 }
             });
         }
+
 
         frame.getContentPane().add(label, "cell 3 4, alignx right");
 
