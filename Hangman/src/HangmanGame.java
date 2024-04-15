@@ -270,13 +270,12 @@ public class HangmanGame{
 
 /////////////////////////////////////////////////[ Buttons Functionality ]/////////////////////////////////////////////////////////////////////
 
-        // Assuming you have all buttons stored in an array or list
         JButton[] buttons = {buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ, buttonK, buttonL, buttonM, buttonN, buttonO, buttonP, buttonQ, buttonR, buttonS, buttonT, buttonU, buttonV, buttonW, buttonX, buttonY, buttonZ};
 
         for (JButton button : buttons) {
             button.addActionListener(e -> {
                 if (currentImageIndex[0] != 7) {
-                    String inputletters = Categories[userArray1][rand];
+                    String inputletter = Categories[userArray1][rand];
                     String buttonText = button.getText().toLowerCase();
                     if (category.contains(buttonText)) {
                         String newDashLine = testLetter(buttonText.charAt(0), dashLine[0], buttonText, Categories, userArray1, rand);
@@ -291,7 +290,6 @@ public class HangmanGame{
                 }
             });
         }
-
 
         frame.getContentPane().add(label, "cell 3 4, alignx right");
 
