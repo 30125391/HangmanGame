@@ -175,6 +175,8 @@ public class HangmanGame{
         hints.setBorder(label_border);
         hints.setBounds(25,25,250,300);
 
+
+
         hints.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

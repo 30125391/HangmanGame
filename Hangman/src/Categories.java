@@ -15,22 +15,27 @@ public class Categories {
 
     public void SetCategories() {
         swE = new String[]{"jedi", "yoda", "luke", "hoth","leia"};
-        swM = new String[]{"jabba", "vader", "endor", "droid", "chopper"};
-        swH = new String[]{"emperor", "republic", "skywalker", "tatooine","coruscant"};
+        swM = new String[]{"jabba", "vader", "endor", "droid", "xwing"};
+        swH = new String[]{"emperor", "republic", "skywalker", "lightsaber","coruscant"};
 
         animalsE = new String[]{"cat", "duck", "monkey", "hamster", "goat"};
-        animalsM = new String[]{"koala", "parrot", "shark", "dolphin", "budgie"};
-        animalsH = new String[]{"orca", "alligator", "aardvark", "axolotl", "elephant"};
+        animalsM = new String[]{"koala", "belugawhale", "shark", "dolphin", "budgie"};
+        animalsH = new String[]{"orca", "goblinshark", "aardvark", "wildboar", "elephant"};
 
-        cartoonE = new String[]{"bugsbunny", "bambi", "bobthebuilder", "nemo", "peppapig"};
-        cartoonM = new String[]{"mickeymouse", "muppets", "scoobydoo", "simpsons", "doratheexplorer"};
-        cartoonH = new String[]{"sebastian", "mufasa", "anastasia", "candice", "buzzlightyear" };
+        cartoonE = new String[]{"rex", "bambi", "simba", "nemo", "pingu"};
+        cartoonM = new String[]{"yogibear", "endnd", "pluto", " garfield", "elmo"};
+        cartoonH = new String[]{"flounder", "mufasa", "daleks", "candice", "olaf" };
 
-        marvelE = new String[]{"spiderman", "hulk", "ironman", "antman", "msmarvel"};
-        marvelM = new String[]{"doctorstrange", "wolverine", "peterparker", "doctoroctopus", "blackpanther" };
-        marvelH = new String[]{"sentinel", "hawkeye", "loki", "nebula", "thanos"};
+        marvelE = new String[]{"spiderman", "hulk", "ironman", "blade", "samwilson"};
+        marvelM = new String[]{"cyclops", "storm", "iceman", "gambit", "nickfury" };
+        marvelH = new String[]{"humantorch", "wonderman", "loki", "nebula", "thanos"};
+
 
     }
+
+
+
+
 
     public String[][] getCategories() {
         String[][] categories = new String[12][];
