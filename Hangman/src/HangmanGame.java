@@ -171,13 +171,17 @@ public class HangmanGame{
 
 /////////////////////////////////////////////////[ Hangman Image(s) ]/////////////////////////////////////////////////////////////////////
 
-        img = new ImageIcon[]{new ImageIcon("./HangmanS1.png"), new ImageIcon("./HangmanS2.png"),
-                new ImageIcon("./HangmanS3.png"),new ImageIcon("./HangmanS4.png"),
-                new ImageIcon("./HangmanS5.png"),new ImageIcon("./HangmanS6.png"),
-                new ImageIcon("./HangmanS7.png")};
+        img = new ImageIcon[]{new ImageIcon("./hangmanS1.png"), new ImageIcon(".hangmanS2.png"),
+                new ImageIcon("./hangmanS3.png"),new ImageIcon("./hangmanS4.png"),
+                new ImageIcon("./hangmanS5.png"),new ImageIcon("./hangmanS6.png"),
+                new ImageIcon("./hangmanS7.png")};
 
         JLabel imgLabel = new JLabel(img[currentImageIndex[0]]);
         frame.getContentPane().add(imgLabel,"cell 3 4, aligny bottom, alignx left");
+
+
+
+
 
         JPanel panel = new JPanel();
 
@@ -260,6 +264,20 @@ public class HangmanGame{
         // Add action listener to each button to handle letter guesses
         for (JButton button : buttons) {
             button.addActionListener(e -> {
+
+                if (dashLine[0].equalsIgnoreCase(hangmanWord)) {
+                    JOptionPane.showMessageDialog(frame, "Victory", "Victory", JOptionPane.INFORMATION_MESSAGE);
+
+                    // Close the current frame
+                    frame.dispose();
+                    // Start the Hangman game
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            new HangmanMenu();
+                        }
+                    });
+                }
+
                 if (currentImageIndex[0] != 7) {
                     String buttonText = button.getText().toLowerCase();
                     // Check if the button's letter has already been guessed
@@ -267,6 +285,7 @@ public class HangmanGame{
                         JOptionPane.showMessageDialog(frame, "You already guessed this letter.", "Warning", JOptionPane.WARNING_MESSAGE);
                         return; // Exit the listener if the letter has already been guessed
                     }
+
                     // Add the guessed letter to the used letters
                     usedLettersText.append(buttonText).append(" ");
 
@@ -289,6 +308,15 @@ public class HangmanGame{
                     }
                 } else {
                     JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+
+                    // Close the current frame
+                    frame.dispose();
+                    // Start the Hangman game
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            new HangmanMenu();
+                        }
+                    });
                 }
             });
         }
@@ -302,6 +330,8 @@ public class HangmanGame{
         frame.setVisible(true);
     }
 
+
+
 ////////////////////////////////////////////////////////[ Main ]/////////////////////////////////////////////////////////////////////
 
     public static void main(String[] args) {
@@ -313,6 +343,7 @@ public class HangmanGame{
             }
         });
     }
+
 
     public String testLetter (char charLetter, String dashLine, String inputLetter, String[][] Categories, int userArray, int rand ) {
 
