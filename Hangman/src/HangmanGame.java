@@ -136,22 +136,7 @@ public class HangmanGame{
         setting.setBorder(label_border);
         setting.setBounds(25,25,250,300);
 
-
-
-/*
-////////////////////////////////////////////////[ TEST ]/////////////////////////////////////////////////////////////////////
-
-
-
-        JLabel wordTest = new JLabel(hangmanWord);
-        frame.getContentPane().add(wordTest,"cell 4 5, aligny bottom, alignx right");
-
-
-
- */
-
 ////////////////////////////////////////////////[ Used Letters ]/////////////////////////////////////////////////////////////////////
-
 
         //Add used letters box
         JLabel usedLetters = new JLabel("Used Letters Here:");
@@ -165,7 +150,6 @@ public class HangmanGame{
         usedLetters.setBorder(label_border);
         usedLetters.setBounds(25,25,250,300);
 
-
 ////////////////////////////////////////////////[ Hints ]/////////////////////////////////////////////////////////////////////
 
 
@@ -178,7 +162,6 @@ public class HangmanGame{
         hints.setBounds(25,25,250,300);
 
 
-
         hints.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -186,17 +169,17 @@ public class HangmanGame{
             }
         });
 
-
-
 /////////////////////////////////////////////////[ Hangman Image(s) ]/////////////////////////////////////////////////////////////////////
 
-        img = new ImageIcon[]{new ImageIcon("./HangmanS1.png"), new ImageIcon("./HangmanS2.png"),
-                new ImageIcon("./HangmanS3.png"),new ImageIcon("./HangmanS4.png"),
-                new ImageIcon("./HangmanS5.png"),new ImageIcon("./HangmanS6.png"),
-                new ImageIcon("./HangmanS7.png")};
+        img = new ImageIcon[]{new ImageIcon("./hangmanS1.png"), new ImageIcon(".hangmanS2.png"),
+                new ImageIcon("./hangmanS3.png"),new ImageIcon("./hangmanS4.png"),
+                new ImageIcon("./hangmanS5.png"),new ImageIcon("./hangmanS6.png"),
+                new ImageIcon("./hangmanS7.png")};
 
         JLabel imgLabel = new JLabel(img[currentImageIndex[0]]);
         frame.getContentPane().add(imgLabel,"cell 3 4, aligny bottom, alignx left");
+
+
 
 
 
@@ -274,10 +257,42 @@ public class HangmanGame{
 
         JButton[] buttons = {buttonA, buttonB, buttonC, buttonD, buttonE, buttonF, buttonG, buttonH, buttonI, buttonJ, buttonK, buttonL, buttonM, buttonN, buttonO, buttonP, buttonQ, buttonR, buttonS, buttonT, buttonU, buttonV, buttonW, buttonX, buttonY, buttonZ};
 
+        // Initialize a StringBuilder to store the used letters
+        StringBuilder usedLettersText = new StringBuilder();
+
+
+        // Add action listener to each button to handle letter guesses
         for (JButton button : buttons) {
             button.addActionListener(e -> {
+
+                if (dashLine[0].equalsIgnoreCase(hangmanWord)) {
+                    JOptionPane.showMessageDialog(frame, "Victory", "Victory", JOptionPane.INFORMATION_MESSAGE);
+
+                    // Close the current frame
+                    frame.dispose();
+                    // Start the Hangman game
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            new HangmanMenu();
+                        }
+                    });
+                }
+
                 if (currentImageIndex[0] != 7) {
                     String buttonText = button.getText().toLowerCase();
+                    // Check if the button's letter has already been guessed
+                    if (usedLettersText.toString().contains(buttonText)) {
+                        JOptionPane.showMessageDialog(frame, "You already guessed this letter.", "Warning", JOptionPane.WARNING_MESSAGE);
+                        return; // Exit the listener if the letter has already been guessed
+                    }
+
+                    // Add the guessed letter to the used letters
+                    usedLettersText.append(buttonText).append(" ");
+
+
+                    // Update the text of the usedLetters JLabel
+                    usedLetters.setText("Used Letters Here: " + usedLettersText.toString());
+
                     if (hangmanWord.contains(buttonText)) {
                         StringBuilder newDashLine = new StringBuilder(dashLine[0]);
                         for (int i = 0; i < hangmanWord.length(); i++) {
@@ -293,10 +308,18 @@ public class HangmanGame{
                     }
                 } else {
                     JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+
+                    // Close the current frame
+                    frame.dispose();
+                    // Start the Hangman game
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            new HangmanMenu();
+                        }
+                    });
                 }
             });
         }
-
 
         frame.getContentPane().add(label, "cell 3 4, alignx right");
 
@@ -306,6 +329,8 @@ public class HangmanGame{
 
         frame.setVisible(true);
     }
+
+
 
 ////////////////////////////////////////////////////////[ Main ]/////////////////////////////////////////////////////////////////////
 
@@ -318,6 +343,7 @@ public class HangmanGame{
             }
         });
     }
+
 
     public String testLetter (char charLetter, String dashLine, String inputLetter, String[][] Categories, int userArray, int rand ) {
 
