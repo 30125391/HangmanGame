@@ -136,7 +136,9 @@ public class HangmanGame{
         setting.setBorder(label_border);
         setting.setBounds(25,25,250,300);
 
+
 ////////////////////////////////////////////////[ Used Letters ]/////////////////////////////////////////////////////////////////////
+
 
         //Add used letters box
         JLabel usedLetters = new JLabel("Used Letters Here:");
@@ -149,6 +151,7 @@ public class HangmanGame{
         Border label_border3 = BorderFactory.createLineBorder(Color.black, 3);
         usedLetters.setBorder(label_border);
         usedLetters.setBounds(25,25,250,300);
+
 
 ////////////////////////////////////////////////[ Hints ]/////////////////////////////////////////////////////////////////////
 
@@ -178,10 +181,6 @@ public class HangmanGame{
 
         JLabel imgLabel = new JLabel(img[currentImageIndex[0]]);
         frame.getContentPane().add(imgLabel,"cell 3 4, aligny bottom, alignx left");
-
-
-
-
 
         JPanel panel = new JPanel();
 
@@ -260,26 +259,14 @@ public class HangmanGame{
         // Initialize a StringBuilder to store the used letters
         StringBuilder usedLettersText = new StringBuilder();
 
-
         // Add action listener to each button to handle letter guesses
         for (JButton button : buttons) {
             button.addActionListener(e -> {
 
-                if (dashLine[0].equalsIgnoreCase(hangmanWord)) {
-                    JOptionPane.showMessageDialog(frame, "Victory", "Victory", JOptionPane.INFORMATION_MESSAGE);
-
-                    // Close the current frame
-                    frame.dispose();
-                    // Start the Hangman game
-                    SwingUtilities.invokeLater(new Runnable() {
-                        public void run() {
-                            new HangmanMenu();
-                        }
-                    });
-                }
-
-                if (currentImageIndex[0] != 7) {
+                if (currentImageIndex[0] != 6) {
                     String buttonText = button.getText().toLowerCase();
+
+
                     // Check if the button's letter has already been guessed
                     if (usedLettersText.toString().contains(buttonText)) {
                         JOptionPane.showMessageDialog(frame, "You already guessed this letter.", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -292,6 +279,7 @@ public class HangmanGame{
 
                     // Update the text of the usedLetters JLabel
                     usedLetters.setText("Used Letters Here: " + usedLettersText.toString());
+
 
                     if (hangmanWord.contains(buttonText)) {
                         StringBuilder newDashLine = new StringBuilder(dashLine[0]);
@@ -306,8 +294,24 @@ public class HangmanGame{
                         currentImageIndex[0]++;
                         imgLabel.setIcon(img[currentImageIndex[0]]);
                     }
+//////////////////////////////////////////////////[ Game Over ]//////////////////////////////////////////////////////////////////////////////
+
                 } else {
                     JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+
+                    // Close the current frame
+                    frame.dispose();
+                    // Start the Hangman game
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            new HangmanMenu();
+                        }
+                    });
+
+//////////////////////////////////////////////////[ Victory ]//////////////////////////////////////////////////////////////////////////////
+
+                }  if (dashLine[0].equalsIgnoreCase(hangmanWord)) {
+                    JOptionPane.showMessageDialog(frame, "Victory", "Victory", JOptionPane.INFORMATION_MESSAGE);
 
                     // Close the current frame
                     frame.dispose();
@@ -321,6 +325,9 @@ public class HangmanGame{
             });
         }
 
+//////////////////////////////////////////////////[ Word ]//////////////////////////////////////////////////////////////////////////////
+
+
         frame.getContentPane().add(label, "cell 3 4, alignx right");
 
         label.setFont(new Font("Serif", Font.PLAIN, 70));
@@ -329,8 +336,6 @@ public class HangmanGame{
 
         frame.setVisible(true);
     }
-
-
 
 ////////////////////////////////////////////////////////[ Main ]/////////////////////////////////////////////////////////////////////
 
@@ -343,7 +348,6 @@ public class HangmanGame{
             }
         });
     }
-
 
     public String testLetter (char charLetter, String dashLine, String inputLetter, String[][] Categories, int userArray, int rand ) {
 
