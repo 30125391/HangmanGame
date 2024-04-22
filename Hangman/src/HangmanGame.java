@@ -174,7 +174,7 @@ public class HangmanGame{
 
 /////////////////////////////////////////////////[ Hangman Image(s) ]/////////////////////////////////////////////////////////////////////
 
-        img = new ImageIcon[]{new ImageIcon("./hangmanS1.png"), new ImageIcon(".hangmanS2.png"),
+        img = new ImageIcon[]{new ImageIcon("./hangmanS1.png"), new ImageIcon("./hangmanS2.png"),
                 new ImageIcon("./hangmanS3.png"),new ImageIcon("./hangmanS4.png"),
                 new ImageIcon("./hangmanS5.png"),new ImageIcon("./hangmanS6.png"),
                 new ImageIcon("./hangmanS7.png")};
