@@ -15,20 +15,20 @@ public class Categories {
 
     public void SetCategories() {
         swE = new String[]{"jedi", "yoda", "luke", "hoth","leia"};
-        swM = new String[]{"jabba", "vader", "endor", "droid", "xwing"};
-        swH = new String[]{"emperor", "republic", "skywalker", "lightsaber","coruscant"};
+        swM = new String[]{ "jabba", "darth vader", "endor", "droid", "x wing"};
+        swH = new String[]{"emperor", "republic", "skywalker", "light saber","coruscant"};
 
         animalsE = new String[]{"cat", "duck", "monkey", "hamster", "goat"};
-        animalsM = new String[]{"koala", "belugawhale", "shark", "dolphin", "budgie"};
-        animalsH = new String[]{"orca", "goblinshark", "aardvark", "wildboar", "elephant"};
+        animalsM = new String[]{"koala", "beluga whale", "shark", "dolphin", "budgie"};
+        animalsH = new String[]{"orca", "goblin shark", "aardvark", "wild boar", "elephant"};
 
         cartoonE = new String[]{"rex", "bambi", "simba", "nemo", "pingu"};
-        cartoonM = new String[]{"yogibear", "endnd", "pluto", " garfield", "elmo"};
+        cartoonM = new String[]{"yogi bear", "edna", "pluto", " garfield", "elmo"};
         cartoonH = new String[]{"flounder", "mufasa", "daleks", "candice", "olaf" };
 
-        marvelE = new String[]{"spiderman", "hulk", "ironman", "blade", "samwilson"};
-        marvelM = new String[]{"cyclops", "storm", "iceman", "gambit", "nickfury" };
-        marvelH = new String[]{"humantorch", "wonderman", "loki", "nebula", "thanos"};
+        marvelE = new String[]{"spider man", "hulk", "iron man", "blade", "the falcon", "stan lee"};
+        marvelM = new String[]{"cyclops", "storm", "iceman", "gambit", "nick fury", };
+        marvelH = new String[]{"human torch", "steve ditko", "loki", "nebula", "thanos", "jack kirby"};
 
     }
 

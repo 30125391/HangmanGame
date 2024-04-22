@@ -157,21 +157,61 @@ public class HangmanGame{
 
 
         JButton hints = new JButton("   Hint   ");
-        frame.getContentPane().add(hints,"cell 4 3, aligny top, alignx right");
+        frame.getContentPane().add(hints, "cell 4 3, aligny top, alignx right");
 
-        //Add border
+//Add border
         Border label_border4 = BorderFactory.createLineBorder(Color.black, 3);
         hints.setBorder(label_border);
-        hints.setBounds(25,25,250,300);
+        hints.setBounds(25, 25, 250, 300);
 
+        String hint = "pending";
+
+        if (hangmanWord.equalsIgnoreCase("jabba")) {
+            hint = "Intergalactic Gangster Slug";
+        } else if (hangmanWord.equalsIgnoreCase("darth vader") || hangmanWord.equalsIgnoreCase("emperor") || hangmanWord.equalsIgnoreCase("thanos")|| hangmanWord.equalsIgnoreCase("daleks")|| hangmanWord.equalsIgnoreCase("nebula")) {
+            hint = "Villian(s)";
+        } else if (hangmanWord.equalsIgnoreCase("coruscant") || hangmanWord.equalsIgnoreCase("endor") || (hangmanWord.equalsIgnoreCase("hoth"))) {
+            hint = "Planet(s) In The Universe";
+        } else if (hangmanWord.equalsIgnoreCase("loki")) {
+            hint = ("The Adopted Son of Odin");
+        } else if (hangmanWord.equalsIgnoreCase("human torch")) {
+            hint = ("Core Member of tThe fantastic 4");
+        } else if (hangmanWord.equalsIgnoreCase("light saber")) {
+            hint = ("Famous Sci-fi Weapon used by force wielders");
+        } else if (hangmanWord.equalsIgnoreCase("edna")) {
+            hint = ("Small woman who made the suits for The Incredibles");
+        } else if (hangmanWord.equalsIgnoreCase("iceman") || hangmanWord.equalsIgnoreCase("storm") || (hangmanWord.equalsIgnoreCase("cyclops")|| (hangmanWord.equalsIgnoreCase("gambit")))){
+            hint = ("Mutant(s)");
+        } else if (hangmanWord.equalsIgnoreCase("cat") || hangmanWord.equalsIgnoreCase("duck") || (hangmanWord.equalsIgnoreCase("hamster") || hangmanWord.equalsIgnoreCase("budgie"))) {
+            hint = ("Pets and Friendly Creature");
+        } else if (hangmanWord.equalsIgnoreCase("wild boar") || hangmanWord.equalsIgnoreCase("koala") || (hangmanWord.equalsIgnoreCase("elephant") || hangmanWord.equalsIgnoreCase("monkey"))) {
+            hint = ("Wild Creature");
+        } else if (hangmanWord.equalsIgnoreCase("luke") || hangmanWord.equalsIgnoreCase("yoda") || hangmanWord.equalsIgnoreCase("leia")) {
+            hint = ("Hero");
+        } else if (hangmanWord.equalsIgnoreCase("dolphin") || hangmanWord.equalsIgnoreCase("beluga whale")|| hangmanWord.equalsIgnoreCase("goblin shark")|| hangmanWord.equalsIgnoreCase("orca")|| hangmanWord.equalsIgnoreCase("shark")){
+            hint = ("Sea Creature");
+        } else if (hangmanWord.equalsIgnoreCase("jedi")) {
+            hint = ("Powerful Guardians of Order and Justice");
+        } else if (hangmanWord.equalsIgnoreCase("droid")) {
+            hint = ("Anthropomorphic Robotic Entities");
+        } else if (hangmanWord.equalsIgnoreCase("x wing")) {
+            hint = ("Vehicle Used by the Rebellion");
+        } else if (hangmanWord.equalsIgnoreCase("spider man")|| hangmanWord.equalsIgnoreCase("hulk")|| hangmanWord.equalsIgnoreCase("iron man")|| hangmanWord.equalsIgnoreCase("the falcon")|| hangmanWord.equalsIgnoreCase("nick fury")) {
+            hint = ("Key Component to the Avengers");
+        } else if (hangmanWord.equalsIgnoreCase("stan lee")|| hangmanWord.equalsIgnoreCase("jack kirby") || hangmanWord.equalsIgnoreCase("steve ditko")){
+            hint = ("Creator(s) of marvels best creations");
+        }
+
+
+
+        String finalHint = hint;
 
         hints.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "pending", "Hint", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(frame, finalHint, "Hint", JOptionPane.INFORMATION_MESSAGE);
             }
         });
-
 /////////////////////////////////////////////////[ Hangman Image(s) ]/////////////////////////////////////////////////////////////////////
 
         img = new ImageIcon[]{new ImageIcon("./hangmanS1.png"), new ImageIcon("./hangmanS2.png"),
@@ -297,7 +337,7 @@ public class HangmanGame{
 //////////////////////////////////////////////////[ Game Over ]//////////////////////////////////////////////////////////////////////////////
 
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Game Over", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(frame, "Game Over: " + hangmanWord, "Game Over", JOptionPane.INFORMATION_MESSAGE);
 
                     // Close the current frame
                     frame.dispose();
